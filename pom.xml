@@ -13,7 +13,7 @@
   <name>spring-course-data</name>
   <description>Following https://www.youtube.com/playlist?list=PLqq-6Pq4lTTbx8p2oCgcAQGQyqN8XeA1x</description>
   <properties>
-    <java.version>1.8</java.version>
+    <java.version>15</java.version>
     <sonar.projectKey>drodriguez-dev_spring-course-data</sonar.projectKey>
     <sonar.organization>drodriguez-dev</sonar.organization>
     <sonar.host.url>https://sonarcloud.io</sonar.host.url>
@@ -50,6 +50,18 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
       </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>15</source>
+          <target>15</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        </plugin>
     </plugins>
   </build>
 </project>

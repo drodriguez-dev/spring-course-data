@@ -18,7 +18,7 @@ public class Course {
 	private String id;
 	private String name;
 	private String description;
-	private LocalDateTime modificationDateTime;
+	private LocalDateTime modificationDateTime = LocalDateTime.now();
 
 	@ManyToOne
 	@OnDelete(action = OnDeleteAction.CASCADE)
@@ -26,7 +26,6 @@ public class Course {
 
 	public Course() {
 		super();
-		this.modificationDateTime = LocalDateTime.now();
 	}
 
 	public Course(final String id, final String name, final String description) {
@@ -34,7 +33,6 @@ public class Course {
 		this.id = id;
 		this.name = name;
 		this.description = description;
-		this.modificationDateTime = LocalDateTime.now();
 	}
 
 	public String getId() {

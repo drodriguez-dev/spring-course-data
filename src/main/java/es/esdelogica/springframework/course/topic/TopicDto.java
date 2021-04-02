@@ -2,24 +2,22 @@ package es.esdelogica.springframework.course.topic;
 
 import java.time.LocalDateTime;
 
-public class TopicDTO {
+public class TopicDto {
 
 	private String id;
 	private String name;
 	private String description;
-	private LocalDateTime modificationDateTime;
+	private LocalDateTime modificationDateTime = LocalDateTime.now();
 
-	public TopicDTO() {
+	public TopicDto() {
 		super();
-		this.modificationDateTime = LocalDateTime.now();
 	}
 
-	public TopicDTO(final String id, final String name, final String description) {
+	public TopicDto(final String id, final String name, final String description) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.description = description;
-		this.modificationDateTime = LocalDateTime.now();
 	}
 
 	public String getId() {

@@ -38,13 +38,13 @@ public class TopicController {
 	}
 
 	@PostMapping(path = "/topics")
-	public void addTopic(@RequestBody final TopicDTO topicDto) {
+	public void addTopic(@RequestBody final TopicDto topicDto) {
 		Topic topic = this.modelMapper.map(topicDto, Topic.class);
 		this.topicService.addTopic(topic);
 	}
 
 	@PutMapping(path = "/topics/{id}")
-	public void updateTopic(@PathVariable final String id, @RequestBody final TopicDTO topicDto) {
+	public void updateTopic(@PathVariable final String id, @RequestBody final TopicDto topicDto) {
 		Topic topic = this.modelMapper.map(topicDto, Topic.class);
 		this.topicService.updateTopic(id, topic);
 	}

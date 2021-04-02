@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityNotFoundException;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -23,6 +24,9 @@ public class CourseController {
 	@Autowired
 	private CourseService courseService;
 
+	@Autowired
+	private ModelMapper modelMapper;
+
 	@GetMapping("/topics/{topicId}/courses")
 	public List<Course> getAllCourses(@PathVariable final String topicId, @RequestParam(required = false) final String name) {
 		if (StringUtils.hasLength(name)) {
@@ -38,13 +42,15 @@ public class CourseController {
 	}
 
 	@PostMapping(path = "/topics/{topicId}/courses")
-	public void addCourse(@PathVariable final String topicId, @RequestBody final Course course) {
+	public void addCourse(@PathVariable final String topicId, @RequestBody final CourseDto courseDto) {
+		Course course = this.modelMapper.map(courseDto, Course.class);
 		course.setTopic(new Topic(topicId, "", ""));
 		this.courseService.insertCourse(course);
 	}
 
 	@PutMapping(path = "/topics/{topicId}/courses/{id}")
-	public void updateCourse(@PathVariable final String topicId, @RequestBody final Course course) {
+	public void updateCourse(@PathVariable final String topicId, @RequestBody final CourseDto courseDto) {
+		Course course = this.modelMapper.map(courseDto, Course.class);
 		course.setTopic(new Topic(topicId, "", ""));
 		this.courseService.updatesCourse(course);
 	}
