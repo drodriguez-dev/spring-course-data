@@ -1,4 +1,4 @@
-package es.esdelogica.spring.course.data;
+package es.esdelogica.springframework.course;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
