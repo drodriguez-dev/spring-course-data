@@ -4,10 +4,12 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,7 +19,7 @@ public class TopicController {
 	@Autowired
 	private TopicService topicService;
 
-	@RequestMapping(method = RequestMethod.GET, path = "/topics")
+	@GetMapping(path = "/topics")
 	public List<Topic> getAllTopics(@RequestParam(required = false) final String name) {
 		if (StringUtils.hasLength(name)) {
 			return this.topicService.getTopicsByName(name);
@@ -26,22 +28,22 @@ public class TopicController {
 		}
 	}
 
-	@RequestMapping(method = RequestMethod.GET, path = "/topics/{id}")
+	@GetMapping(path = "/topics/{id}")
 	public Topic getTopic(@PathVariable final String id) {
 		return this.topicService.getTopic(id);
 	}
 
-	@RequestMapping(method = RequestMethod.POST, path = "/topics")
+	@PostMapping(path = "/topics")
 	public void addTopic(@RequestBody final Topic topic) {
 		this.topicService.addTopic(topic);
 	}
 
-	@RequestMapping(method = RequestMethod.PUT, path = "/topics/{id}")
+	@PutMapping(path = "/topics/{id}")
 	public void updateTopic(@PathVariable final String id, @RequestBody final Topic topic) {
 		this.topicService.updateTopic(id, topic);
 	}
 
-	@RequestMapping(method = RequestMethod.DELETE, path = "/topics/{id}")
+	@DeleteMapping(path = "/topics/{id}")
 	public void removeTopic(@PathVariable final String id) {
 		this.topicService.removeTopic(id);
 	}

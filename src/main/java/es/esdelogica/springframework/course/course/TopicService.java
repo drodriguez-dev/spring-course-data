@@ -3,6 +3,8 @@ package es.esdelogica.springframework.course.course;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.EntityNotFoundException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +22,8 @@ public class TopicService {
 	}
 
 	public Topic getTopic(final String id) {
-		return this.topicRepository.findById(id).get();
+		return this.topicRepository.findById(id)
+				.orElseThrow(() -> new EntityNotFoundException(String.format("Topic %s not found", id)));
 	}
 
 	public List<Topic> getTopicsByName(final String name) {
