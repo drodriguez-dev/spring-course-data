@@ -1,25 +1,20 @@
-package es.esdelogica.springframework.course.course;
+package es.esdelogica.springframework.course.topic;
 
 import java.time.LocalDateTime;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+public class TopicDTO {
 
-@Entity
-public class Topic {
-
-	@Id
 	private String id;
 	private String name;
 	private String description;
 	private LocalDateTime modificationDateTime;
 
-	public Topic() {
+	public TopicDTO() {
 		super();
 		this.modificationDateTime = LocalDateTime.now();
 	}
 
-	public Topic(final String id, final String name, final String description) {
+	public TopicDTO(final String id, final String name, final String description) {
 		super();
 		this.id = id;
 		this.name = name;
