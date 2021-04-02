@@ -1,4 +1,4 @@
-package es.esdelogica.springframework.course.topic;
+package es.esdelogica.springframework.course.course;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package es.esdelogica.springframework.course.course;
+package es.esdelogica.springframework.course.topic;
 
 import java.util.List;
 
@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import es.esdelogica.springframework.course.topic.Topic;
+import es.esdelogica.springframework.course.course.Topic;
 
 @RestController
 public class CourseController {

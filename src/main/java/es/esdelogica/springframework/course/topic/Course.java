@@ -1,4 +1,4 @@
-package es.esdelogica.springframework.course.course;
+package es.esdelogica.springframework.course.topic;
 
 import java.time.LocalDateTime;
 
@@ -9,7 +9,7 @@ import javax.persistence.ManyToOne;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
-import es.esdelogica.springframework.course.topic.Topic;
+import es.esdelogica.springframework.course.course.Topic;
 
 @Entity
 public class Course {

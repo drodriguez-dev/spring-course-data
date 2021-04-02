@@ -4,9 +4,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.modelmapper.ModelMapper;
 
-import es.esdelogica.springframework.course.topic.Topic;
-import es.esdelogica.springframework.course.topic.TopicDTO;
-
 public class TopicDTOTest {
 
 	private final ModelMapper modelMapper = new ModelMapper();
