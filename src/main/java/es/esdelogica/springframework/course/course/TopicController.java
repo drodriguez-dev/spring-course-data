@@ -2,6 +2,7 @@ package es.esdelogica.springframework.course.course;
 
 import java.util.List;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -19,6 +20,9 @@ public class TopicController {
 	@Autowired
 	private TopicService topicService;
 
+	@Autowired
+	private ModelMapper modelMapper;
+
 	@GetMapping(path = "/topics")
 	public List<Topic> getAllTopics(@RequestParam(required = false) final String name) {
 		if (StringUtils.hasLength(name)) {
@@ -34,12 +38,14 @@ public class TopicController {
 	}
 
 	@PostMapping(path = "/topics")
-	public void addTopic(@RequestBody final Topic topic) {
+	public void addTopic(@RequestBody final TopicDTO topicDto) {
+		Topic topic = this.modelMapper.map(topicDto, Topic.class);
 		this.topicService.addTopic(topic);
 	}
 
 	@PutMapping(path = "/topics/{id}")
-	public void updateTopic(@PathVariable final String id, @RequestBody final Topic topic) {
+	public void updateTopic(@PathVariable final String id, @RequestBody final TopicDTO topicDto) {
+		Topic topic = this.modelMapper.map(topicDto, Topic.class);
 		this.topicService.updateTopic(id, topic);
 	}
 
