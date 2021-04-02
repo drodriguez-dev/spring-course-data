@@ -14,6 +14,9 @@
   <description>Following https://www.youtube.com/playlist?list=PLqq-6Pq4lTTbx8p2oCgcAQGQyqN8XeA1x</description>
   <properties>
     <java.version>1.8</java.version>
+    <sonar.projectKey>drodriguez-dev_spring-course-data</sonar.projectKey>
+    <sonar.organization>drodriguez-dev</sonar.organization>
+    <sonar.host.url>https://sonarcloud.io</sonar.host.url>
   </properties>
   <dependencies>
     <dependency>
